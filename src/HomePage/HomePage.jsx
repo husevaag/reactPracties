@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { BudgetExpences } from '../_components';
+import { BudgetExpences, DefaultHeader } from '../_components';
 import { userActions } from '../_actions';
 import WebSessionCounter from 'web-session-counter';
 import { styles } from '../_constants';
@@ -13,27 +13,14 @@ class HomePage extends React.Component {
     }
 
     componentWillUnmount() {
-        return count = WebSessionCounter.count - 1;
+        return count = WebSessionCounter.count - 10;
     }
 
     handleDeleteUser(id) {
         return (e) => this.props.dispatch(userActions.delete(id));
     }
 
-    dropDown() {
-        document.getElementById('headerDropDown').classList.add('hover', 'headerMenuIcon');
-    }
-    removeDropDown() {
-        document.getElementById('headerDropDown').classList.remove('hover', 'headerMenuIcon');
-    }
-
-
     render() {
-
-        const refresh = function() {
-            window.location.reload();
-        }
-
         const { user, users } = this.props;
         const count = WebSessionCounter.count;
         
@@ -42,28 +29,18 @@ class HomePage extends React.Component {
         let lastNameUpper = user.lastName.slice(0,1).toUpperCase() + user.lastName.slice(1, user.lastName.lenght);
 
         //Moduls
-            // Header
-            let menu = <div style={styles.headerMenu}><div onClick={this.dropDown} ><Link to="/something" onClick={refresh}>Put menu icon here</Link></div></div>;
-            let dropMenu = <div style={styles.headerDropDown} id="headerDropDown" onMouseLeave={this.removeDropDown}><a>Dashboard</a><a>Something</a></div>
-            let headerText = <div style={styles.headerStatus}><div>Welcome {firstNameUpper + ' ' + lastNameUpper}</div><div><p><Link to="/login">Logout</Link></p></div></div>    
-            
-            let header = <div className="header"><div style={styles.headerStyle} className="headerContainer">{menu}{headerText}</div>{dropMenu}</div>;
-
             // Session counts
             let sessionCount = <div style={styles.sessionsModul} className="sessionCount"><div><h4>Number of current sessions: {count}</h4></div></div>;
 
         return (
             <div style={styles.contentContainer} className="content-container">
-                {header}
+                <DefaultHeader />
                 <div style={styles.content} className="col-md-6 col-md-offset-3">
                     <div style={styles.usersModul}>
                         <div className="welcomeMessage">
                             <h1>Dashboard</h1>
                         </div>
-                        {BudgetExpences}
-                        
-                        
-                        
+                        {BudgetExpences}   
                     </div>
                     {sessionCount}
                 </div>
