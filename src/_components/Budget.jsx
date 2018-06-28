@@ -26,31 +26,31 @@ var myDataSource={
     },
     data:[
         {
-            label:"Bakersfield Central",
-            value:"880000"
+            label:"Juni",
+            value:"20000"
         },
         {
-            label:"Garden Groove harbour",
-            value:"730000"
+            label:"Juli",
+            value:"25000"
         },
         {
-            label:"Los Angeles Topanga",
-            value:"590000"
+            label:"August",
+            value:"23000"
         },
         {
-            label:"Compton-Rancho Dom",
-            value:"520000"
+            label:"September",
+            value:"27000"
         },
         {
-            label:"Daly City Serramonte"
-            ,value:"330000"
+            label:"Oktober"
+            ,value:"21000"
         }
     ]
 };
 var revenueChartConfigs={
     id:"revenue-chart",
     type:"column2d",
-    width:"40%",
+    width:"30%",
     height:300,
     dataFormat:"json",
     dataSource:myDataSource,
@@ -58,4 +58,4 @@ var revenueChartConfigs={
     
 };
 
-export const Budget = (<ReactFC {...revenueChartConfigs}/>);
+export const BudgetExpences = (<ReactFC {...revenueChartConfigs}/>);

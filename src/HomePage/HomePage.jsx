@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Budget } from '../_components';
+import { BudgetExpences } from '../_components';
 import { userActions } from '../_actions';
 import WebSessionCounter from 'web-session-counter';
 import { styles } from '../_constants';
@@ -37,7 +37,7 @@ class HomePage extends React.Component {
 
         //Moduls
             // Header
-            let menu = <div style={styles.headerMenu}><div onClick={this.dropDown} ><Link to="/something">Put menu icon here</Link></div></div>;
+            let menu = <div style={styles.headerMenu}><div onClick={this.dropDown} ><Link to="/something" onClick="window.location.reload()">Put menu icon here</Link></div></div>;
             let dropMenu = <div style={styles.headerDropDown} id="headerDropDown" onMouseLeave={this.removeDropDown}><a>Dashboard</a><a>Something</a></div>
             let headerText = <div style={styles.headerStatus}><div>Welcome {firstNameUpper + ' ' + lastNameUpper}</div><div><p><Link to="/login">Logout</Link></p></div></div>    
             
@@ -52,9 +52,9 @@ class HomePage extends React.Component {
                 <div style={styles.content} className="col-md-6 col-md-offset-3">
                     <div style={styles.usersModul}>
                         <div className="welcomeMessage">
-                            <h1>Hi {firstNameUpper}!</h1>
+                            <h1>Dashboard</h1>
                         </div>
-                        {Budget}
+                        {BudgetExpences}
                         
                         
                         
