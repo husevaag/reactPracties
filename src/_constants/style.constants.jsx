@@ -49,8 +49,9 @@ export const styles = {
     sessionsModul: {
         display: "flex",
         flexGrow: 1,
-        justifyContent: "flex-end",
+        alignItems: "flex-end",
         marginTop: "0.75%",
         marginRight: "3%",
+        flexDirection: "column",
     }            
 };
