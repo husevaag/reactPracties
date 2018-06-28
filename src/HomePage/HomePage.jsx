@@ -27,7 +27,13 @@ class HomePage extends React.Component {
         document.getElementById('headerDropDown').classList.remove('hover', 'headerMenuIcon');
     }
 
+
     render() {
+
+        const refresh = function() {
+            window.location.reload();
+        }
+
         const { user, users } = this.props;
         const count = WebSessionCounter.count;
         
@@ -37,7 +43,7 @@ class HomePage extends React.Component {
 
         //Moduls
             // Header
-            let menu = <div style={styles.headerMenu}><div onClick={this.dropDown} ><Link to="/something" onClick="window.location.reload()">Put menu icon here</Link></div></div>;
+            let menu = <div style={styles.headerMenu}><div onClick={this.dropDown} ><Link to="/something" onClick={refresh}>Put menu icon here</Link></div></div>;
             let dropMenu = <div style={styles.headerDropDown} id="headerDropDown" onMouseLeave={this.removeDropDown}><a>Dashboard</a><a>Something</a></div>
             let headerText = <div style={styles.headerStatus}><div>Welcome {firstNameUpper + ' ' + lastNameUpper}</div><div><p><Link to="/login">Logout</Link></p></div></div>    
             
